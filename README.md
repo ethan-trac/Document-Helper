@@ -20,4 +20,4 @@ The Document Helper is software developed to aid in document generation given ce
 
 ## Development
 
-If you wish to expand upon The Rupertsland Document Helper, please read the [documentation](https://github.com/etracrupertsland/Ambassador-Program-Document-Generator/wiki).
+If you wish to expand upon The Rupertsland Document Helper, please read the [documentation](https://github.com/ethan-trac/Document-Helper/wiki).
