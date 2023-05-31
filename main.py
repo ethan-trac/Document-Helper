@@ -1,10 +1,10 @@
 import customtkinter
 import os
 from tkinter import filedialog
-from letter import LetterAP
-from certificate import CertificateAP
+from letter import Letter
+from certificate import Certificate
 from PIL import Image
-from myemail import EmailAP
+from myemail import Email
 
 # set default appearance 
 customtkinter.set_appearance_mode('dark')
@@ -20,7 +20,7 @@ class TabView(customtkinter.CTkTabview):
         super().__init__(master, **kwargs)
 
         # create tabs
-        self.add("Ambassador Program")
+        self.add("First Tab")
         # create more tabs here as needed
         #
         #
@@ -29,50 +29,50 @@ class TabView(customtkinter.CTkTabview):
 
         # Set GUI for tabs
 
-        # create recipient information frame AP (Ambassador Program)
-        self.recipientInfoFrameAP = customtkinter.CTkFrame(self.tab('Ambassador Program'), fg_color="transparent")
-        self.recipientInfoFrameAP.grid(row=2, column=1, padx=(20, 0), pady=(20, 0), sticky="nwes")
-        self.recipientInfoFrameAP.grid_columnconfigure(0, weight=1)
-        self.recipientInfoFrameAP.grid_rowconfigure(0, weight=1)
+        # create recipient information frame (First Tab)
+        self.recipientInfoFrame = customtkinter.CTkFrame(self.tab('First Tab'), fg_color="transparent")
+        self.recipientInfoFrame.grid(row=2, column=1, padx=(20, 0), pady=(20, 0), sticky="nwes")
+        self.recipientInfoFrame.grid_columnconfigure(0, weight=1)
+        self.recipientInfoFrame.grid_rowconfigure(0, weight=1)
         
-        self.titleLabel = customtkinter.CTkLabel(self.recipientInfoFrameAP, text="Recipient Information", font=customtkinter.CTkFont(size=20, weight="bold"))
+        self.titleLabel = customtkinter.CTkLabel(self.recipientInfoFrame, text="Recipient Information", font=customtkinter.CTkFont(size=20, weight="bold"))
         self.titleLabel.grid(row=0, column=0, padx=20, pady=(10, 10))
 
-        self.firstNameEntryAP = customtkinter.CTkEntry(self.recipientInfoFrameAP, placeholder_text='First Name')
-        self.firstNameEntryAP.grid(row=1, column=0, padx=(0, 10), pady=(0, 10))
+        self.firstNameEntry = customtkinter.CTkEntry(self.recipientInfoFrame, placeholder_text='First Name')
+        self.firstNameEntry.grid(row=1, column=0, padx=(0, 10), pady=(0, 10))
 
-        self.lastNameEntryAP = customtkinter.CTkEntry(self.recipientInfoFrameAP, placeholder_text='Last Name')
-        self.lastNameEntryAP.grid(row=2, column=0, padx=(0, 10), pady=(0, 10))
+        self.lastNameEntry = customtkinter.CTkEntry(self.recipientInfoFrame, placeholder_text='Last Name')
+        self.lastNameEntry.grid(row=2, column=0, padx=(0, 10), pady=(0, 10))
 
-        self.emailEntryAP = customtkinter.CTkEntry(self.recipientInfoFrameAP, placeholder_text='Recipient Email')
-        self.emailEntryAP.grid(row=3, column=0, padx=(0, 10), pady=(0, 10))
+        self.emailEntry = customtkinter.CTkEntry(self.recipientInfoFrame, placeholder_text='Recipient Email')
+        self.emailEntry.grid(row=3, column=0, padx=(0, 10), pady=(0, 10))
 
-        self.ambassadorLevelLabelAP = customtkinter.CTkLabel(self.recipientInfoFrameAP, text="Ambassador Level:", anchor="w")
-        self.ambassadorLevelLabelAP.grid(row=4, column=0, padx=20, pady=(10, 0))
+        self.levelLabel = customtkinter.CTkLabel(self.recipientInfoFrame, text="Position Level:", anchor="w")
+        self.levelLabel.grid(row=4, column=0, padx=20, pady=(10, 0))
 
-        self.ambassadorLevelEntryAP = customtkinter.CTkOptionMenu(self.recipientInfoFrameAP, values=["Regular", "Associate", "Executive"])
-        self.ambassadorLevelEntryAP.grid(row=5, column=0, padx=20, pady=(10, 10))
+        self.levelEntry = customtkinter.CTkOptionMenu(self.recipientInfoFrame, values=["Regular", "Associate", "Executive"])
+        self.levelEntry.grid(row=5, column=0, padx=20, pady=(10, 10))
 
-        # create volunteer info info frame (Ambassador Program)
-        self.volInfoFrameAP = customtkinter.CTkFrame(self.tab('Ambassador Program'), fg_color="transparent")
-        self.volInfoFrameAP.grid(row=3, column=1, padx=(20, 0), pady=(20, 0), sticky="nwes")
-        self.volInfoFrameAP.grid_columnconfigure(0, weight=1)
-        self.volInfoFrameAP.grid_rowconfigure(4, weight=1)
+        # create volunteer info info frame (First Tab)
+        self.volInfoFrame = customtkinter.CTkFrame(self.tab('First Tab'), fg_color="transparent")
+        self.volInfoFrame.grid(row=3, column=1, padx=(20, 0), pady=(20, 0), sticky="nwes")
+        self.volInfoFrame.grid_columnconfigure(0, weight=1)
+        self.volInfoFrame.grid_rowconfigure(4, weight=1)
 
-        self.credentialsLabelAP = customtkinter.CTkLabel(self.volInfoFrameAP, text="Volunteer Information", font=customtkinter.CTkFont(size=20, weight="bold"))
-        self.credentialsLabelAP.grid(row=0, column=0, padx=(0, 10), pady=(0, 10))
+        self.credentialsLabel = customtkinter.CTkLabel(self.volInfoFrame, text="Volunteer Information", font=customtkinter.CTkFont(size=20, weight="bold"))
+        self.credentialsLabel.grid(row=0, column=0, padx=(0, 10), pady=(0, 10))
 
-        self.hoursEntryAP = customtkinter.CTkEntry(self.volInfoFrameAP, placeholder_text='Volunteer Hours')
-        self.hoursEntryAP.grid(row=1, column=0, padx=(0, 10), pady=(0, 10))
+        self.hoursEntry = customtkinter.CTkEntry(self.volInfoFrame, placeholder_text='Volunteer Hours')
+        self.hoursEntry.grid(row=1, column=0, padx=(0, 10), pady=(0, 10))
 
-        self.credentialsLabelAP = customtkinter.CTkLabel(self.volInfoFrameAP, text="Provide volunteer positions in list form.", anchor="w")
-        self.credentialsLabelAP.grid(row=2, column=0, padx=(0, 10), pady=(0, 10))
+        self.credentialsLabel = customtkinter.CTkLabel(self.volInfoFrame, text="Provide volunteer positions in list form.", anchor="w")
+        self.credentialsLabel.grid(row=2, column=0, padx=(0, 10), pady=(0, 10))
 
-        self.credentialsEntryAP = customtkinter.CTkTextbox(self.volInfoFrameAP, width=400)
-        self.credentialsEntryAP.grid(row=3, column=0, padx=(0, 10), pady=(0, 10))
+        self.credentialsEntry = customtkinter.CTkTextbox(self.volInfoFrame, width=400)
+        self.credentialsEntry.grid(row=3, column=0, padx=(0, 10), pady=(0, 10))
 
-        # set default values (Ambassador Program)
-        self.ambassadorLevelEntryAP.set("Regular")
+        # set default values (First Tab)
+        self.levelEntry.set("Regular")
 
         # set GUI for additional tabs here
         #
@@ -90,14 +90,14 @@ class TabView(customtkinter.CTkTabview):
         global saveDataPath
         global savePath
 
-        # generate documents for Ambassador Program tab
-        if(self.get() == 'Ambassador Program'):
+        # generate documents for first tab
+        if(self.get() == 'First Tab'):
             # get user input from GUI
-            firstName = self.firstNameEntryAP.get()
-            lastName = self.lastNameEntryAP.get()
-            credentials = self.credentialsEntryAP.get('1.0', 'end-1c')
-            volunteerHours = self.hoursEntryAP.get()
-            level = self.ambassadorLevelEntryAP.get()
+            firstName = self.firstNameEntry.get()
+            lastName = self.lastNameEntry.get()
+            credentials = self.credentialsEntry.get('1.0', 'end-1c')
+            volunteerHours = self.hoursEntry.get()
+            level = self.levelEntry.get()
 
             # show error window if user input is invalid
             if firstName == '' or lastName == '' or credentials == '':
@@ -110,8 +110,8 @@ class TabView(customtkinter.CTkTabview):
                 return -1
 
             # create certificate and letter objects
-            certificate = CertificateAP(firstName, lastName, savePath)
-            letter = LetterAP(firstName, lastName, credentials, volunteerHours, level, savePath)
+            certificate = Certificate(firstName, lastName, savePath)
+            letter = Letter(firstName, lastName, credentials, volunteerHours, level, savePath)
 
             # generate letter and certificate from objects
             letterResult = letter.generateLetter()
@@ -142,15 +142,15 @@ class TabView(customtkinter.CTkTabview):
         global saveDataPath
         global savePath
 
-        # generate email for Ambassador Program tab
-        if self.get() == 'Ambassador Program':
+        # generate email for first tab
+        if self.get() == 'First Tab':
             # get user input from GUI
-            firstName = self.firstNameEntryAP.get()
-            lastName = self.lastNameEntryAP.get()
-            email = self.emailEntryAP.get()
+            firstName = self.firstNameEntry.get()
+            lastName = self.lastNameEntry.get()
+            email = self.emailEntry.get()
             
             # create email object
-            email = EmailAP(firstName, lastName, email, savePath)
+            email = Email(firstName, lastName, email, savePath)
 
             # generate template email from object
             generateEmailResult = email.generateEmail()
@@ -178,14 +178,14 @@ class TabView(customtkinter.CTkTabview):
     
     # clears fields in GUI
     def clear(self):
-        # clear fields for Ambassador Program tab
-        if self.get() == 'Ambassador Program':
-            self.credentialsEntryAP.delete('1.0', 'end')
-            self.firstNameEntryAP.delete('0', 'end')
-            self.lastNameEntryAP.delete('0', 'end')
-            self.emailEntryAP.delete('0', 'end')
-            self.hoursEntryAP.delete('0', 'end')
-            self.ambassadorLevelEntryAP.set("Regular")
+        # clear fields for first tab
+        if self.get() == 'First Tab':
+            self.credentialsEntry.delete('1.0', 'end')
+            self.firstNameEntry.delete('0', 'end')
+            self.lastNameEntry.delete('0', 'end')
+            self.emailEntry.delete('0', 'end')
+            self.hoursEntry.delete('0', 'end')
+            self.levelEntry.set("Regular")
 
 # class for application itself
 class App(customtkinter.CTk):
@@ -217,14 +217,6 @@ class App(customtkinter.CTk):
         self.sidebarFrame = customtkinter.CTkFrame(self, width=140, corner_radius=0)
         self.sidebarFrame.grid(row=0, column=0, rowspan=4, sticky="nsew")
         self.sidebarFrame.grid_rowconfigure(4, weight=1)
-
-        self.rliLogoImage = customtkinter.CTkImage(light_image=Image.open("RLI-TL_RGB_LIGHT.png"),
-                                  dark_image=Image.open("RLI-TL_RGB_DARK.png"),
-                                  size=(150, 74.72))
-
-
-        self.logoLabel = customtkinter.CTkLabel(self.sidebarFrame, image=self.rliLogoImage, text='')
-        self.logoLabel.grid(row=0, column=0, padx=20, pady=(20, 0))
 
         self.titleLabel = customtkinter.CTkLabel(self.sidebarFrame, text="Document Helper", font=customtkinter.CTkFont(size=20, weight="bold"))
         self.titleLabel.grid(row=1, column=0, padx=20, pady=(10, 10))

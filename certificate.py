@@ -1,7 +1,7 @@
 import cv2 as cv
 
-# Ambassador Program Certificate class
-class CertificateAP:
+# Certificate class
+class Certificate:
 
     # Constructor
     def __init__(self, firstName, lastName, filePath):
@@ -13,8 +13,8 @@ class CertificateAP:
     # Generate certificate
     def generateCertificate(self):
         
-        # get image from file path
-        img = cv.imread('Ambassador Program Certificate.png')
+        # get certificate template image from file path
+        img = cv.imread('your_certificate.png')
         
         # set x and y coordinates for text
         x_cord = 15

@@ -1,8 +1,8 @@
 from docx import Document
 from docx2pdf import convert
 
-# Ambassador Program Letter Class
-class LetterAP:
+# Letter Class
+class Letter:
     # Constructor
     def __init__(self, firstName: str, lastName: str, credentials: str, volunteerHours: str, level: str, filePath: str):
         self.firstName = firstName
@@ -21,31 +21,12 @@ class LetterAP:
         doc = Document()
 
         # add text to document piece by piece
-        doc.add_paragraph('To whom it may concern,')
-
-
-        firstParagraph = self.firstName + ' ' + self.lastName
-
-        if self.level.lower() == 'regular':
-            firstParagraph += ' is a '
-        else:
-            firstParagraph += ' is an '
-
-        firstParagraph += self.level.lower() + ' Mètis ambassador for the Rupertsland Institute.'
-        firstParagraph += ' To date, they have completed ' + str(self.volunteerHours) + ' hours of volunteer work.'
-
-        doc.add_paragraph(firstParagraph)
-
-        secondParagraph = 'In this role, ' + self.firstName + ' has accomplished the following:\n\n' + self.credentials
-
-        doc.add_paragraph(secondParagraph)
-
-        doc.add_paragraph('Thank you for your time and consideration,\n\n Person Who Signes Off.')
+        # reference docx documentation for more information
 
         # save document to specified file path
-        doc.save(self.filePath + '/ambassador-letter-' + self.firstName.lower() + "-" + self.lastName.lower() + '.docx')
+        doc.save(self.filePath + '/letter-' + self.firstName.lower() + "-" + self.lastName.lower() + '.docx')
 
         # convert to pdf for emailing (dont want recipients to be able to edit the letter)
-        convert(self.filePath + '/ambassador-letter-' + self.firstName.lower() + "-" + self.lastName.lower() + '.docx', self.filePath + '/ambassador-letter-' + self.firstName.lower() + "-" + self.lastName.lower() + '.pdf')
+        convert(self.filePath + '/letter-' + self.firstName.lower() + "-" + self.lastName.lower() + '.docx', self.filePath + '/letter-' + self.firstName.lower() + "-" + self.lastName.lower() + '.pdf')
 
         return 0
