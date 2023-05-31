@@ -1,0 +1,1 @@
+pyinstaller --noconfirm --onedir --windowed --add-data "C:\Users\etrac\Documents\GitHub\Ambassador-Program-Document-Generator\venv\Lib\site-packages/customtkinter;customtkinter/" --add-data "reset.png;." --add-data "RLI-TL_RGB_DARK.png;." --add-data "RLI-TL_RGB_LIGHT.png;." --add-data "Ambassador Program Certificate.png;." "main.py"
