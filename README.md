@@ -1,10 +1,12 @@
-# Rupertsland Document Helper
+# Document Helper
 
-The Rupertsland Document Helper is a program for internal use within Rupertsland Institute.
+The Document Helper is software developed to aid in document generation given certain fields. It can be expanded to fit your document generating needs!
 
 ## Screenshot
 
-![image](https://github.com/etracrupertsland/Ambassador-Program-Document-Generator/assets/132302674/884051bd-ecbe-42b1-b467-b02799723c94)
+| Light | Dark |
+| --- | --- |
+| ![image](https://github.com/ethan-trac/Document-Helper/assets/64873501/ce9fd82c-00af-47dc-85a1-ab75b83d8742) | ![image](https://github.com/ethan-trac/Document-Helper/assets/64873501/2df62823-9cd5-447c-a52f-a5f79187629f)|
 
 ## Features
 
