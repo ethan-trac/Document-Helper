@@ -201,7 +201,7 @@ class App(customtkinter.CTk):
         self.getSaveData()
 
         # configure window
-        self.title("Rupertsland Document Helper")
+        self.title("Document Helper")
         self.resizable(False, False)
 
         # configure grid layout (4x4)
